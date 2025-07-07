@@ -7,22 +7,23 @@ export class LogCreate {
 
     constructor(private logRepository: LogRepository) { }
 
-    async execute(franchise: string, version: string, metadata: { name: string, id: string }, error?: string): Promise<void> {
+    async execute(franchise: string, version: string, metadata: { name: string, id: string }, error?: string): Promise<Log> {
 
-        const log = new Log(this.generateId(),
+        const status = error ? STATUS.FAIL : STATUS.SUCCESS;
+        const log = new Log(
+            this.generateId(),
             franchise,
             version,
             Metadata.fromObject(metadata),
             new Date(),
-            STATUS.SUCCESS,
+            status,
             error
-        )
+        );
 
         // Save the log using the repository
-        await this.logRepository.create(log);
+        return this.logRepository.create(log);
     }
 
-    // FIXME - This is a temporary ID generator, replace with a proper UUID generator in production
     private generateId() {
         return Math.random().toString(36).substring(2, 15);
     }
