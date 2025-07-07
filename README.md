@@ -32,7 +32,13 @@ PORT=3000
 
 1. Make sure you have Docker and Docker Compose installed.
 2. Rename the file `.env.example` to `.env`
-2. Run the following command at the project root:
+3. Run the following command at the project root:
+   ```
+   npm i
+   ```
+   This will install the project's dependencies.
+   
+4. Run the following command at the project root:
 
    ```
    docker-compose up --build
@@ -40,7 +46,7 @@ PORT=3000
 
    This will start both the PostgreSQL database and the Blossom API in separate containers.
 
-3. The server will be available at [http://localhost:3000](http://localhost:3000).
+5. The server will be available at [http://localhost:3000](http://localhost:3000).
 
 ## Main Endpoints
 - `GET /api/:franchise/v1?metadata={...}&config={...}`  
