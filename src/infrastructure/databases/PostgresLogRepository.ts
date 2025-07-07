@@ -2,7 +2,7 @@ import { Pool } from "pg";
 import { Log } from "../../domain/models/Log";
 import { LogRepository } from "../../domain/ports/LogRepository";
 import { parseValtoInt, parseValtoString } from "../../utils";
-import { LogMetadata } from "../../domain/models/LogMetadata";
+import { Metadata } from "../../domain/models/Metadata";
 import { TABLE_NAMES } from "../../const";
 
 export class PostgresLogRepository implements LogRepository {
@@ -56,7 +56,7 @@ export class PostgresLogRepository implements LogRepository {
             row.id,
             parseValtoString(row.franchise),
             parseValtoString(row.version),
-            LogMetadata.fromObject(row.metadata),
+            Metadata.fromObject(row.metadata),
             new Date(row.timestamp),
             row.status,
             row.error
