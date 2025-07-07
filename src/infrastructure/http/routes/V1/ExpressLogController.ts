@@ -11,7 +11,6 @@ export class ExpressLogController {
             const log: Log = await ServiceContainer.log.create.execute(franchise, version, metadata);
             res.status(201).json(log);
         } catch (error) {
-            console.error("Error creating log:", error);
             next(error);
         }
     }
@@ -21,7 +20,6 @@ export class ExpressLogController {
             const logs = await ServiceContainer.log.getAll.execute();
             res.status(200).json(logs);
         } catch (error) {
-            console.error("Error fetching logs:", error);
             next(error);
         }
     }
@@ -36,7 +34,6 @@ export class ExpressLogController {
                 res.status(404).json({ error: "Log not found" });
             }
         } catch (error) {
-            console.error("Error fetching log by ID:", error);
             next(error);
         }
     }

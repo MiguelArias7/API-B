@@ -4,7 +4,7 @@ import { ExpressLogRouter } from './V1/ExpressLogRouter';
 
 const apiRouter = Router();
 
-// Registrar versiones
+// This router serves as the main API entry point and includes all versioned routes.
 apiRouter.use(ExpressLogRouter);
 apiRouter.use(ExpressDataRouter);
 

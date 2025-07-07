@@ -15,6 +15,7 @@ const logRepository = PostgresLogRepository.instance;
 const PokemonFranchisePort: PokemonPort = new PokemonPort();
 const DigimonFranchisePort: DigimonPort = new DigimonPort();
 
+// ServiceContainer is a singleton that holds instances of use cases for logging and data retrieval.
 export const ServiceContainer = {
     log: {
         create: new LogCreate(logRepository),

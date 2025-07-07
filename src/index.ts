@@ -1,10 +1,11 @@
 import { NextFunction, Request, Response } from 'express';
 import * as express from 'express';
 import { apiRouter } from './infrastructure/http/routes/index.routes';
-import { errorLoggerMiddleware } from './infrastructure/http/middleware/ErrorLoggerMiddleware';
 
+// Create  application
 const app = express();
 
+// Middleware to parse JSON and URL-encoded bodies
 app.use(express.json()); // Middleware to parse JSON bodies
 app.use(express.urlencoded({ extended: true })); // Middleware to parse URL-encoded bodies
 
@@ -26,11 +27,8 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     });
 });
 
+// Define the port to listen on
 const PORT: string = process.env.PORT || "3000";
-
-app.get('/', (req: Request, res: Response) => {
-    res.send('Hello, world 1!');
-});
 
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);

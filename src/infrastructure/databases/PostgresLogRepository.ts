@@ -5,6 +5,7 @@ import { parseValtoInt, parseValtoString } from "../../utils";
 import { Metadata } from "../../domain/models/Metadata";
 import { TABLE_NAMES } from "../../const";
 
+// This class implements the LogRepository interface for PostgreSQL database operations.
 export class PostgresLogRepository implements LogRepository {
 
     static #instance: PostgresLogRepository;

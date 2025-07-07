@@ -15,11 +15,13 @@ export class PokemonPort implements FranchisePort<Pokemon> {
             }
         })
 
+        // Verify response status
         if (!response.ok) {
             const errorText = await response.text();
             throw new Error(`Failed to fetch Pokemon: ${response.status} ${response.statusText} - ${errorText}`);
         }
 
+        // Parse and return the JSON response
         const json: Pokemon = await response.json();
         return json as Pokemon;
     }

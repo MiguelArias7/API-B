@@ -1,6 +1,7 @@
 import { Log } from "../../domain/models/Log";
 import { LogRepository } from "../../domain/ports/LogRepository";
 
+// InMemoryLogRepository is an in-memory implementation of the LogRepository interface.
 export class InMemoryLogRepository implements LogRepository {
 
     private logs: Array<Log> = new Array<Log>();

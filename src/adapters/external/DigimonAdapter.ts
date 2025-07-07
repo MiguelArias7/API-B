@@ -15,11 +15,13 @@ export class DigimonPort implements FranchisePort<Digimon> {
             }
         });
 
+        // Verify response status
         if (!response.ok) {
             const errorText = await response.text();
             throw new Error(`Failed to fetch Digimon: ${response.status} ${response.statusText} - ${errorText}`);
         }
 
+        // Parse and return the JSON response
         const json: Digimon = await response.json();
         return json as Digimon;
     }

@@ -1,4 +1,4 @@
-import { STATUS } from "../../const";
+import { LOG_STATUS } from "../../const";
 import { Log } from "../../domain/models/Log";
 import { Metadata } from "../../domain/models/Metadata";
 import { LogRepository } from "../../domain/ports/LogRepository";
@@ -9,7 +9,9 @@ export class LogCreate {
 
     async execute(franchise: string, version: string, metadata: { name: string, id: string }, error?: string): Promise<Log> {
 
-        const status = error ? STATUS.FAIL : STATUS.SUCCESS;
+        // Validate inputs
+        const status = error ? LOG_STATUS.FAIL : LOG_STATUS.SUCCESS;
+        // Create a new log instance
         const log = new Log(
             this.generateId(),
             franchise,
@@ -24,6 +26,7 @@ export class LogCreate {
         return this.logRepository.create(log);
     }
 
+    // Generate a unique ID for the log
     private generateId() {
         return Math.random().toString(36).substring(2, 15);
     }

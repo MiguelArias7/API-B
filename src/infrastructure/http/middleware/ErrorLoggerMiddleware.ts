@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { ServiceContainer } from "../../container/ServiceContainer";
 
+// This middleware logs errors that occur during request processing.
 export async function errorLoggerMiddleware(err: Error, req: Request, res: Response, next: NextFunction): Promise<void> {
     const errorMessage = err instanceof Error ? err.message : String(err);
     const { metadata: metadataJson } = req.query;
