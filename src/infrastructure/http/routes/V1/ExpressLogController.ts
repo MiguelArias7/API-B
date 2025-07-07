@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { ServiceContainer } from "../../../container/ServiceContainer";
+import { Log } from "../../../../domain/models/Log";
 
 export class ExpressLogController {
 
@@ -7,7 +8,7 @@ export class ExpressLogController {
         try {
             const { version, franchise, metadata } = req.body;
 
-            const log = await ServiceContainer.log.create.execute(franchise, version, metadata);
+            const log: Log = await ServiceContainer.log.create.execute(franchise, version, metadata);
             res.status(201).json(log);
         } catch (error) {
             console.error("Error creating log:", error);

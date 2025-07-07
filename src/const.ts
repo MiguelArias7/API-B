@@ -4,7 +4,7 @@ export enum TABLE_NAMES {
 
 export enum STATUS {
     SUCCESS = 'success',
-    ERROR = 'error',
+    FAIL = 'fail',
 }
 
 export enum FRANCHISE {
