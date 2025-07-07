@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "b00e155c-0f3c-4da5-bca2-746743ae1014",
+		"name": "Data",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34833559"
+	},
+	"item": [
+		{
+			"name": "Fetch data - Pokemon",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/pokemon/v1?metadata={\"name\":\"Raichu\"}&config={\"baseUrl\":\"https://pokeapi.co/api/v2\"}",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"pokemon",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "metadata",
+							"value": "{\"name\":\"Raichu\"}"
+						},
+						{
+							"key": "config",
+							"value": "{\"baseUrl\":\"https://pokeapi.co/api/v2\"}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch data - Digimon",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/digimon/v1?metadata={\"id\":\"123\"}&config={\"baseUrl\":\"https://digi-api.com/api/v1\"}",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"digimon",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "metadata",
+							"value": "{\"id\":\"123\"}"
+						},
+						{
+							"key": "config",
+							"value": "{\"baseUrl\":\"https://digi-api.com/api/v1\"}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
