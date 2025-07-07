@@ -34,7 +34,7 @@ export class ExpressDataController {
                 res.status(200).json(franchiseCreature);
             }
             else {
-                res.status(400).json({ error: "Invalid franchise" });
+                throw new Error("Invalid franchise");
             }
 
         } catch (error) {
