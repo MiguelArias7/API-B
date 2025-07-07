@@ -1,4 +1,4 @@
-export class LogMetadata {
+export class Metadata {
 
     id: string;
     name: string;
@@ -13,11 +13,11 @@ export class LogMetadata {
         this.name = name;
     }
 
-    static fromObject(obj: unknown): LogMetadata {
+    static fromObject(obj: unknown): Metadata {
         if (!obj) {
             throw new Error("Cannot create LogMetadata from null or undefined object");
         }
         const { id = "", name = "" } = obj as { id?: string; name?: string };
-        return new LogMetadata(id, name);
+        return new Metadata(id, name);
     }
 }
