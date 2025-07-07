@@ -1,21 +1,21 @@
 import { STATUS } from "../../const";
 import { Log } from "../../domain/models/Log";
-import { LogMetadata } from "../../domain/models/LogMetadata";
+import { Metadata } from "../../domain/models/Metadata";
 import { LogRepository } from "../../domain/ports/LogRepository";
 
 export class LogCreate {
 
     constructor(private logRepository: LogRepository) { }
 
-    async execute(franchise: string, version: string, metadata: { name: string, id: string }): Promise<void> {
+    async execute(franchise: string, version: string, metadata: { name: string, id: string }, error?: string): Promise<void> {
 
         const log = new Log(this.generateId(),
             franchise,
             version,
-            new LogMetadata(metadata.id, metadata.name),
+            Metadata.fromObject(metadata),
             new Date(),
             STATUS.SUCCESS,
-            '',
+            error
         )
 
         // Save the log using the repository
