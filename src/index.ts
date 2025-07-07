@@ -1,13 +1,13 @@
 import { NextFunction, Request, Response } from 'express';
 import * as express from 'express';
-import { ExpressLogRouter } from './infrastructure/http/ExpressLogRouter';
+import { apiRouter } from './infrastructure/http/routes/index.routes';
 
 const app = express();
 
 app.use(express.json()); // Middleware to parse JSON bodies
 app.use(express.urlencoded({ extended: true })); // Middleware to parse URL-encoded bodies
 
-app.use(ExpressLogRouter)
+app.use('/api', apiRouter); // Register the API routes
 
 // Middleware to log requests
 app.use((req: Request, res: Response, next: NextFunction) => {
