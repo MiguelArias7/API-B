@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { ExpressLogController } from "./ExpressLogController";
 
+
 const LogController = new ExpressLogController();
 
 const ExpressLogRouter = Router();

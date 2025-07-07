@@ -1,11 +1,12 @@
 import { NextFunction, Request, Response } from "express";
-import { ServiceContainer } from "../container/ServiceContainer";
+import { ServiceContainer } from "../../../container/ServiceContainer";
 
 export class ExpressLogController {
 
     async create(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const { version, franchise, status, metadata } = req.body;
+            const { version, franchise, metadata } = req.body;
+
             const log = await ServiceContainer.log.create.execute(franchise, version, metadata);
             res.status(201).json(log);
         } catch (error) {
