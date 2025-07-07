@@ -13,7 +13,12 @@ export class DigimonPort implements FranchisePort<Digimon> {
                 "API-Key": configuration.APIKey,
                 ...configuration.headers
             }
-        })
+        });
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Failed to fetch Digimon: ${response.status} ${response.statusText} - ${errorText}`);
+        }
 
         const json: Digimon = await response.json();
         return json as Digimon;
