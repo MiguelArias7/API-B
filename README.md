@@ -31,6 +31,7 @@ PORT=3000
 ## Installation and Running with Docker Compose
 
 1. Make sure you have Docker and Docker Compose installed.
+2. Rename the file `.env.example` to `.env`
 2. Run the following command at the project root:
 
    ```
