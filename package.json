@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npx jest --config jest.config.js",
     "dev": "tsc --watch",
     "build": "tsc",
     "prestart": "npm run build",
@@ -12,10 +12,15 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",  
+  "license": "ISC",
   "devDependencies": {
     "@types/express": "^5.0.3",
+    "@types/jest": "^30.0.0",
     "@types/pg": "^8.15.4",
+    "@types/supertest": "^6.0.3",
+    "jest": "^30.0.4",
+    "supertest": "^7.1.3",
+    "ts-jest": "^29.4.0",
     "typescript": "^5.8.3"
   },
   "dependencies": {

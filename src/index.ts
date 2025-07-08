@@ -1,5 +1,4 @@
-import { NextFunction, Request, Response } from 'express';
-import * as express from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import { apiRouter } from './infrastructure/http/routes/index.routes';
 
 // Create  application
@@ -27,9 +26,15 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     });
 });
 
+// Export the app for testing
+export default app;
+
 // Define the port to listen on
 const PORT: string = process.env.PORT || "3000";
 
-app.listen(PORT, () => {
-    console.log(`Server is running at http://localhost:${PORT}`);
-});
+// Only start the server if this file is run directly (not imported)
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Server is running at http://localhost:${PORT}`);
+    });
+}
